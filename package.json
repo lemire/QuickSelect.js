@@ -1,5 +1,5 @@
 {
-  "name": "quickselect",
+  "name": "qselect",
   "version": "1.0.0",
   "description": "Implementation of the QuickSelect algorithm in JavaScript for top-k computations",
   "main": "QuickSelect.js",

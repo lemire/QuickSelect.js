@@ -5,13 +5,13 @@ Implementation of the QuickSelect algorithm in Java for top-k computations
 
 ## npm install
 ```
-npm install quickselect
+npm install qselect
 ```
 
 ## code sample
 
 ```JavaScript
-  var QuickSelect = require('quickselect');
+  var QuickSelect = require('qselect');
 
   var array = [1,2,3,49,10,-1,-2]
 
