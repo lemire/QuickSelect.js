@@ -1,5 +1,6 @@
 # QuickSelect.js
 Implementation of the QuickSelect algorithm in Java for top-k computations
+[![Build Status](https://travis-ci.org/lemire/QuickSelect.js.png)](https://travis-ci.org/lemire/QuickSelect.js)
 
 
 ## npm install
