@@ -29,3 +29,7 @@ npm install quickselect
   var topk = QuickSelect(array,2,reversecmp).slice(0,2); 
   // should return an array containing the two largest (10, 49)
 ```
+
+## Credit 
+
+Inspired by a code sample from Anno Langen.

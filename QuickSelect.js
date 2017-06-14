@@ -73,7 +73,6 @@ function QuickSelect(array, k, comparator) {
     return array;
   }
   var idx = select(array,k,compare);
-  console.log("array = ",array);
   if(idx != k) console.log("warning: could not complete quickselect");
   return array;
 }
