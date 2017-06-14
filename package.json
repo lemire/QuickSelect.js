@@ -4,7 +4,7 @@
   "description": "Implementation of the QuickSelect algorithm in JavaScript for top-k computations",
   "main": "QuickSelect.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha unit/basictests.js"
   },
   "repository": {
     "type": "git",
@@ -23,9 +23,6 @@
   "dependencies": {},
   "devDependencies": {
     "benchmark": "^1.0.0",
-    "mocha": "^2.3.4"
-  },
-  "scripts": {
-    "test": "mocha unit/basictests.js"
+    "mocha": "^2.5.3"
   }
 }
