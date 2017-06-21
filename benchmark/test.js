@@ -18,20 +18,17 @@ function rand(i) {
 var defaultcomparator = function(a, b) {
   return a < b;
 };
+var reversedefaultcomparator = function(a, b) {
+  return b < a;
+};
 
 function QueueEnqueueBench(blocks) {
   console.log('starting dynamic queue/enqueue benchmark');
   var suite = new Benchmark.Suite();
-          var a = new Array();
-          for (var i = 0 ; i < 128 * (blocks + 1)  ; i++) {
-            a.push(rand(i));
-          }
-          a.sort()
-          QuickSelect(a,128,defaultcomparator).slice(0,128).sort();
   // add tests
   var ms = suite
     .add('FastPriorityQueue', function() {
-      var b = new FastPriorityQueue(defaultcomparator);
+      var b = new FastPriorityQueue(reversedefaultcomparator);
       for (var i = 0 ; i < 128  ; i++) {
         b.add(rand(i));
       }
@@ -39,14 +36,18 @@ function QueueEnqueueBench(blocks) {
         b.add(rand(i));
         b.poll();
       }
-      return b;
+      return b.array.slice(0, k).sort(function(a, b) {
+            return a - b
+      });
     })
     .add('sort', function() {
           var a = new Array();
           for (var i = 0 ; i < 128 * (blocks + 1)  ; i++) {
             a.push(rand(i));
           }
-          a.sort()
+          a.sort(function(a, b) {
+            return a - b
+          });
           return a.slice(0,128);
     })
     .add('QuickSelect', function() {
@@ -54,7 +55,9 @@ function QueueEnqueueBench(blocks) {
           for (var i = 0 ; i < 128 * (blocks + 1)  ; i++) {
             a.push(rand(i));
           }
-          return QuickSelect(a,128,defaultcomparator).slice(0,128).sort();
+          return QuickSelect(a,128,defaultcomparator).slice(0,128).sort(function(a, b) {
+            return a - b
+          });
     })
     // add listeners
     .on('cycle', function(event) {
