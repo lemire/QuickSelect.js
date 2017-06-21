@@ -3,20 +3,26 @@
 
   var array = [1,2,3,49,10,-1,-2]
 
-    
+
 
   // QuickSelect rearranges the values so that the k smallest values occur in the first k positions
   // they are not necessarily in sorted order
 
   var cmp = function(a,b){return a<b;};
-  var topk = QuickSelect(array,2,cmp).slice(0,2); 
+  var topk = QuickSelect(array,2,cmp).slice(0,2);
   // should return an array containing the two smallest (-1, -2)
-  
+
 
 
   var reversecmp = function(a,b){return a>b;};
-  var topk = QuickSelect(array,2,reversecmp).slice(0,2); 
+  var topk = QuickSelect(array,2,reversecmp).slice(0,2);
   // should return an array containing the two largest (10, 49)
+
+
+
+When calling QuickSelect on an array larger than k, the value at index k after calling QuickSelect acts
+as a pivot. This means that no value with index less than k can be larger than the pivot, and no
+value with index larger than k can be smaller than the pivot.
 
 **/
 
@@ -31,6 +37,8 @@ function swap(array, index1, index2) {
   array[index2] = temp;
 }
 
+
+// pivot value will be at array[partition(array...)]
 function partition(array, leftindex, rightindex, pivotindex, compare) {
   const pivotvalue = array[pivotindex];
   swap(array,pivotindex,rightindex);
@@ -70,6 +78,8 @@ function QuickSelect(array, k, comparator) {
   var compare = comparator || defaultcomparator;
   if(array.length < k) {
     console.log("array too small.");
+    return array;
+  } else if(array.length == k) {
     return array;
   }
   var idx = select(array,k,compare);

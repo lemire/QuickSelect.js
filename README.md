@@ -31,6 +31,10 @@ npm install qselect
   // should return an array containing the two largest (10, 49)
 ```
 
+When calling QuickSelect on an array larger than k, the value at index k after calling QuickSelect acts
+as a pivot. This means that no value with index less than k can be larger than the pivot, and no
+value with index larger than k can be smaller than the pivot.
+
 ## Credit 
 
 Inspired by a code sample from Anno Langen.
