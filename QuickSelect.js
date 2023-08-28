@@ -51,7 +51,7 @@ function select(array, k, compare) {
   var rightindex = array.length - 1
   while(true) {
     if(leftindex == rightindex) return leftindex;
-    var pivotindex = leftindex + Math.floor((rightindex - leftindex) / 2);
+    var pivotindex = leftindex + ((rightindex - leftindex) >> 1);
     pivotindex = partition(array, leftindex, rightindex, pivotindex, compare);
     if(k == pivotindex) {
       return k;
